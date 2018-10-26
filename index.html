@@ -1,0 +1,56 @@
+<html>
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+
+<script>
+
+    $(function() {
+
+   var img = "<img src='img/on.png' />";
+   var people = [];
+
+   $.getJSON('ex.json', function(data) {
+       $.each(data.clusters, function(i, f) {
+	   
+	   //$.each(f, function(z, j) {	       
+           //}
+	   
+           var tblRow = "<tr align=\"middle\">" +
+	       "<td>" + img + "</td>" +
+	       "<td>" + i + "</td>" +
+	       "<td>" + f[0]['coreNumber'] + "</td>" +
+               "<td>" + f[0]['coreNumber'] + "</td>" +
+	       "<td>" + f[0]['coreMinutePrice'] + "</td>" +
+	       "<td>" + f[0]['email'] + "</td>" +	       
+	       "</tr>"
+           $(tblRow).appendTo("#userdata tbody");
+     });
+
+   });
+
+});
+</script>
+</head>
+
+<body>
+
+<div class="wrapper">
+<div class="profile">
+   <table id= "userdata" border="2">
+     <thead>
+       <th></th>
+       <th>clusterAddress</th>
+       <th>coreNumber</th>
+       <th>coreMinutePrice</th>
+       <th>email</th>	    
+        </thead>
+      <tbody>
+
+       </tbody>
+   </table>
+
+</div>
+</div>
+
+</body>
+</html>
